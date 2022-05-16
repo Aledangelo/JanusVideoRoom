@@ -141,6 +141,7 @@ const server = https.createServer(options, app);
 
 server.listen(port, () => {
   console.log('[SERVER] Listening on https://' + ip.address() + ':' + port);
+  console.log('aaaaaaaprovaprova');
 });
 
 // app.post('/autenticazione', function(req, res) {
