@@ -128,6 +128,7 @@ $(document).ready(function() {
 										.click(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
+											
 										});
 									if(getQueryStringValue("room") !== "") {
 										myroom = parseInt(getQueryStringValue("room"));

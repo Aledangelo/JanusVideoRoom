@@ -19,8 +19,10 @@
 	document.addEventListener('DOMContentLoaded', () => {
 		var room = new URLSearchParams(window.location.search);
         if(room.has('room')) {
-            alert('Press START button to join conference ' + room.get("room"));
-        }
+			document.getElementById('invited').innerHTML = "<p>Press <code>Start</code> to join in room <b>" + room.get('room') + "</b></p>";
+        } else {
+			document.getElementById('invited').innerHTML = "<p>Press  <code>Start</code> to join or create one room.</p>";
+		}
 	});
 
 	$(function() {
@@ -32,7 +34,7 @@
 	});
 
 	//possibile INVITE
-	function Input(){
+	function Input() {
 		var req = new XMLHttpRequest();
 			req.onreadystatechange = function() {
 				if (req.readyState == 4) {
@@ -86,7 +88,9 @@
 							Conference</b>  of Unina , created using Janus-Gateway (developed by  
 						<a href="https://github.com/meetecho/janus-gateway">Meetcho</a>)
 						and an express server wrote using NodeJS</div>
-						<p>Press the <code>Start</code> button above to join in one room.</p>
+						<div class="col-md-12" style="text-align: center;" id="invited">
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -196,6 +200,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 								<!-- <span class="label label-info hide" id="invite"></span> -->
+								<p>Invite your friends in this conference by email invitation</p>
 								<input autocomplete="off" class="form-control" type="email" placeholder="Friend's Email" id="friend_email" />
 						<div class="form-group"><button class="btn btn-primary btn-block" type="button" onclick=Input()>Invite</button></div>
 						

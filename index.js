@@ -106,15 +106,13 @@ app.post('/register', (request, response) => {
     });
 });
 
-app.post('/login',(request,response)=>{
+app.post('/login', (request, response) => {
   console.log('[LOGIN] ' + Date.now() + ' - POST - ' + request.hostname);
   db.login(request.body, (token, res, status) => {
     switch (status){
       case 200:
         response.status(status);
         response.cookie('session', token);
-        // response.setHeader("Content-Type","application/json");
-        // response.write(JSON.stringify(res));
         if(request.body.room === "") {
           response.redirect('/videoroom');
         } else {
