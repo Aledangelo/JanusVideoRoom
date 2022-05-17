@@ -39,7 +39,7 @@ module.exports = {
         var template = handlebars.compile(html);
         var replacements = {
           name: name,
-          url: "https://" + ip.address() + ":" + port + "/confirm?email="+email //metto questo URL dentro la mail inviata
+          url: "https://" + ip.address() + ":" + port + "/confirm?email=" + email //metto questo URL dentro la mail inviata
         };
       
 

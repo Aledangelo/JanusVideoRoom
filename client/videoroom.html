@@ -39,13 +39,13 @@
 			req.onreadystatechange = function() {
 				if (req.readyState == 4) {
 					if (req.status == 200) {
-						swal({title: "Invite sent",text: "wait for new users", icon:"success"})
+						swal({title: "Invite sent",text: "wait for new users", icon:"success"});
 					   // .then(function(){
 						   // var delay = 5000; 
 							//setTimeout(function(){ window.location = "./login"; }, delay);
 						};
 					} else if(req.status == 409){
-						swal({title: "Error", text: "not possible to send",icon:"warning"})
+						swal({title: "Error", text: "not possible to send",icon:"warning"});
 					}           
 			}		
 			var body = "email=" + document.getElementById('friend_email').value + "&room=" + document.getElementById('actual_room').value;
@@ -53,6 +53,23 @@
 			req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 			
 			req.send(body);	
+	}
+
+	function logout() {
+		var req = new XMLHttpRequest();
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+				if (req.status == 200) {
+					// swal({title: "Logged Out", text:"", icon:"success"});
+					window.location.replace("/login");
+				} else if (req.status == 409) {
+					swal({title: "Error", text: "something went wrong",icon:"warning"});
+				}
+			}
+		}
+
+		req.open("GET", "/logout", true);
+		req.send();
 	}
 </script>
 <style>
@@ -73,11 +90,10 @@
 			<div class="page-header" style="text-align:center;">
 				<h1>Unina Video Conference</h1>
 				<br>
-				<button class="btn btn-primary" autocomplete="off" id="start">Start</button>
-				<br></br>
-				<form action="/logout" method="get">
-					<input class="btn btn-primary" type="submit" id="logout-button" value="Log Out" />
-				</form>
+				<span>
+					<button class="btn btn-primary" autocomplete="off" id="start">Start</button>
+					<button class="btn btn-primary" autocomplete="off" id="logout-button" onclick="logout()">Logout</button>
+				</span>
 			</div>
 			<br>
 			<div class="container" id="details">
@@ -104,8 +120,10 @@
 							<h4>Press <code>Join the room</code> to join in an existing conference or press <code>Create Room</code> to create your own room</h4>
 							<img src="http://www.trendyonlinesolution.in/wp-content/uploads/2018/10/animation-video.png" />	
 							<br><br>
-							<button class="btn btn-primary btn-block" autocomplete="off" id="createroom">Create room</button>
-							<button class="btn btn-primary btn-block" autocomplete="off" id="joinroom">Join room</button>
+							<span>
+								<button class="btn btn-primary" autocomplete="off" id="createroom">Create room</button>
+								<button class="btn btn-primary" autocomplete="off" id="joinroom">Join room</button>
+							</span>
 							<br>	
 						</div>
 						<div class="input-group margin-bottom-md hide" id="create">
@@ -117,9 +135,9 @@
 						</div>
 						<div class="input-group margin-bottom-md hide" id="join">
 							<input autocomplete="off" class="form-control" type="text" placeholder="Choose room" id="chooseroom" />
-							<input autocomplete="off" class="form-control" type="text" placeholder="Choose username" id="chooseuser" />
+							
 							<span class="input-group-btn">
-								<button class="btn btn-primary btn-block" autocomplete="off" id="joinbtn" style="height: 76px;">Join room</button>
+								<button class="btn btn-primary btn-block" autocomplete="off" id="joinbtn">Join room</button>
 							</span>
 						</div>
 					</div>

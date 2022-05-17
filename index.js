@@ -16,6 +16,7 @@ var cors = require('cors');
 const { nextTick } = require('process');
 // global.io = socket(http);
 const nodemailer = require('./server/config/nodemailer.config');
+const { pass } = require('./server/config/auth.config');
 
 const options = {
   key: fs.readFileSync('certs/private.key'),
