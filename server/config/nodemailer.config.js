@@ -85,9 +85,9 @@ module.exports = {
           transport.sendMail(mailOptions, function(error, info){
             
               if (err) {
-                console.log(err)
+                console.log('[MAILER] ' + err)
             }else{
-              console.log('EMAIL SENT!')
+              console.log('[MAILER] EMAIL SENT!')
             }
             if (info) {
                 console.log('[MAILER] ' + info.response)

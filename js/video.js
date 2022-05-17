@@ -79,7 +79,7 @@ var vcodec = (getQueryStringValue("vcodec") !== "" ? getQueryStringValue("vcodec
 var doDtx = (getQueryStringValue("dtx") === "yes" || getQueryStringValue("dtx") === "true");
 var subscriber_mode = (getQueryStringValue("subscriber-mode") === "yes" || getQueryStringValue("subscriber-mode") === "true");
 
-$(document).ready(function() {
+$(document).ready( function() {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo

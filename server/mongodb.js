@@ -4,7 +4,7 @@ var ObjectId = require("mongodb").ObjectID;
 const jwt = require('jsonwebtoken');
 const nodemailer = require('./config/nodemailer.config');
 const Agenda = require('agenda');
-require("../index_old");
+require("../index");
 
 //const connectionString =
   //unlo"mongodb+srv://m63Admin:middiff2020@cluster0.rugp4.mongodb.net/mydb?retryWrites=true&w=majority";
