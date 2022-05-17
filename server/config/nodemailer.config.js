@@ -18,9 +18,6 @@ var readHTMLFile = (path, callback) => {
     });
   };
 
-const user = config.user;
-const pass = config.pass;
-
 const transport = nodemailer.createTransport({
   service: "gmail",
   auth: {
