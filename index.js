@@ -21,7 +21,7 @@ const { pass } = require('./server/config/auth.config');
 const options = {
   key: fs.readFileSync('certs/private.key'),
   cert: fs.readFileSync('certs/certificate.crt'),
-  passphrase: 'uninawebrtc'
+  passphrase: process.env.CERT
 };
 
 app.use(express.static("js"));

@@ -7,7 +7,7 @@ module.exports = function (token){
     }
 
     try{
-        const verified = jwt.verify(token, "asdasdasd");
+        const verified = jwt.verify(token, process.env.JWT);
         return 200;
 
     }catch(err){

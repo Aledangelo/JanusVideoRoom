@@ -21,8 +21,8 @@ var readHTMLFile = (path, callback) => {
 const transport = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: 'greentownvalidator@gmail.com',
-    pass: 'joXro8-fatgem-faxris'
+    user: process.env.USER,
+    pass: process.env.PASS
   },
 });
 
@@ -42,7 +42,7 @@ module.exports = {
 
         var htmlToSend = template(replacements);
         var mailOptions = {
-            from:'greentownvalidator@gmail.com',
+            from: process.env.USER,
             to : email,
             subject : 'Confirm your email',
             html : htmlToSend
@@ -74,7 +74,7 @@ module.exports = {
         
           var htmlToSend = template(replacements);
           var mailOptions = {
-              from:'greentownvalidator@gmail.com',
+              from: process.env.USER,
               to : email,
               subject : 'Join my call',
               html : htmlToSend

@@ -9,7 +9,7 @@ require("../index");
 //const connectionString =
   //unlo"mongodb+srv://m63Admin:middiff2020@cluster0.rugp4.mongodb.net/mydb?retryWrites=true&w=majority";
 
-const connectionString = "mongodb://localhost:27017/WebRTC"
+const connectionString = process.env.MONGO;
 var db;
 var clientMongo;
 var usersCollection;
@@ -85,7 +85,7 @@ module.exports = {
           bcrypt.comparePassword(user.password, res[0].password, function(err, isPasswordMatch){
             if(err) throw err; //TODO
             if(isPasswordMatch){
-              const token = jwt.sign({_id: res[0]._id, name: res[0].name}, "asdasdasd", {expiresIn: "30m"});
+              const token = jwt.sign({_id: res[0]._id, name: res[0].name}, process.env.JWT, {expiresIn: "30m"});
 
               callback(token, res[0], 200);
 
