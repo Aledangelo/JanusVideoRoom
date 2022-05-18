@@ -1,14 +1,14 @@
 version: '3'
 services:
 
-  database: 
+  mongo: 
     networks:
       network_0:
         ipv4_address: 193.20.1.3
     image: 'mongo'
     container_name : 'mongodb'
     environment:
-      - MONGO_INITDB_DATABASE=database_wrtc
+      - MONGO_INITDB_DATABASE=WebRTC
       - MONGO_INITDB_ROOT_USERNAME=database_wrtc_name
       - MONGO_INITDB_ROOT_PASSWORD=database_wrtc_pass
 
@@ -35,7 +35,7 @@ services:
       network_0:
         ipv4_address: 193.20.1.5
     image: ale13/janus-gateway:v4
-    container_name : server_janus
+    container_name : janus_gateway
     ports:
     - '8088-8089:8088-8089'
     restart: always
