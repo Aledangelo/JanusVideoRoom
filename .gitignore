@@ -1,0 +1,14 @@
+node_modules/
+certs/certificate.crt
+certs/private.key
+certs/request.csr
+not_used/
+index_old.js
+utilities/img/
+utilities/js
+client/misc.html
+js/videoroomtest.js
+client/autenticazione.html
+data/config
+data/
+server/config/auth.config.js
