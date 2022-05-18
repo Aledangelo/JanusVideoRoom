@@ -25,7 +25,7 @@ services:
     image: miscia/node-server:latest
     container_name : server_Webrtc
     environment:
-      - MONGO=mongodb+srv://Michelle:hello@cluster0.pi64r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      - MONGO=mongodb+srv:/193.20.1.3:27017/WebRTC
     ports:
     - '8008:8008'
     restart: always
