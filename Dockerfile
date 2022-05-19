@@ -13,11 +13,6 @@ RUN npm install
 
 # Bundle app source
 COPY . .
-ENV USER=greentownvalidator@gmail.com
-ENV PASS=joXro8-fatgem-faxris
-ENV MONGO=mongodb+srv://Michelle:hello@cluster0.pi64r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-ENV JWT=jldtbo8eelemaprkd
-ENV CERT=uninawebrtc
 
 EXPOSE 8008
 
